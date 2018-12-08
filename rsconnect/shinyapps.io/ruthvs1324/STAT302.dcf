@@ -5,8 +5,8 @@ account: ruthvs1324
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 609117
-bundleId: 1749000
+bundleId: 1749003
 url: https://ruthvs1324.shinyapps.io/STAT302/
-when: 1544234762.33998
+when: 1544234955.84896
 asMultiple: FALSE
 asStatic: FALSE
