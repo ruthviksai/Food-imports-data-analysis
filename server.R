@@ -4,6 +4,7 @@ library(readxl)
 library("lattice")
 library(plotly)
 library(janitor)
+library(DT)
 
 setwd("~/Desktop/STAT302/")
 shinyServer <- function(input, output) {
@@ -16,9 +17,25 @@ import_smaller[,-1] <- round(import_smaller[,-1],0)
 head(import_smaller)
 #graph <- xyplot('Total animal foods' ~ 'Year', data = import_smaller)
 
-  output$graph <-renderPlot({ 
+  output$graph1 <-renderPlotly({ 
     plot_ly(data = import_smaller, x = ~year, y = ~total_animal_foods, mode = "markers", type = "scatter")
-})
+    
+    })
+  output$graph2 <-renderPlotly({ 
+    plot_ly(data = import_smaller, x = ~year, y = ~total_plant_foods, mode = "markers", type = "scatter")
+    
+  })
+  output$graph3 <-renderPlotly({ 
+    plot_ly(data = import_smaller, x = ~year, y = ~total_beverages, mode = "markers", type = "scatter")
+    
+  })
+  output$graph4 <-renderPlotly({ 
+    plot_ly(data = import_smaller, x = ~year, y = ~total_u_s_food_imports, mode = "markers", type = "scatter")
+    
+  })
+  output$mytable = DT::renderDataTable({
+    import_smaller
+  })
 }
 
 
